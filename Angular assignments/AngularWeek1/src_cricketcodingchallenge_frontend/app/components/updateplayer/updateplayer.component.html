@@ -1,0 +1,55 @@
+<!-- updateplayer.component.html -->
+
+<p>Update Player</p>
+
+<form #updateForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="updatePlayer()">
+    <div class="form-group">
+        <label>Player ID:</label>
+        <input type="number" class="form-control" name="playerId" #playerIdControl="ngModel" required [(ngModel)]="playerToUpdate.playerId">
+        <span style="color: red;" *ngIf="playerIdControl.touched && playerIdControl.invalid">Player ID is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Player Name:</label>
+        <input type="text" class="form-control" name="playerName" #playerNameControl="ngModel" required [(ngModel)]="playerToUpdate.playerName">
+        <span style="color: red;" *ngIf="playerNameControl.touched && playerNameControl.invalid">Player Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Jersey Number:</label>
+        <input type="text" class="form-control" name="jerseyNumber" #jerseyNumberControl="ngModel" required [(ngModel)]="playerToUpdate.jerseyNumber">
+        <span style="color: red;" *ngIf="jerseyNumberControl.touched && jerseyNumberControl.invalid">Jersey Number is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Role:</label>
+        <input type="text" class="form-control" name="role" #roleControl="ngModel" required [(ngModel)]="playerToUpdate.role">
+        <span style="color: red;" *ngIf="roleControl.touched && roleControl.invalid">Role is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Total Matches:</label>
+        <input type="number" class="form-control" name="totalMatches" #totalMatchesControl="ngModel" required [(ngModel)]="playerToUpdate.totalMatches">
+        <span style="color: red;" *ngIf="totalMatchesControl.touched && totalMatchesControl.invalid">Total Matches is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Team Name:</label>
+        <input type="text" class="form-control" name="teamName" #teamNameControl="ngModel" required [(ngModel)]="playerToUpdate.teamName">
+        <span style="color: red;" *ngIf="teamNameControl.touched && teamNameControl.invalid">Team Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Country/State Name:</label>
+        <input type="text" class="form-control" name="countryOrStateName" #countryOrStateNameControl="ngModel" required [(ngModel)]="playerToUpdate.countryOrStateName">
+        <span style="color: red;" *ngIf="countryOrStateNameControl.touched && countryOrStateNameControl.invalid">Country/State Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Description:</label>
+        <textarea class="form-control" name="description" #descriptionControl="ngModel" required [(ngModel)]="playerToUpdate.description"></textarea>
+        <span style="color: red;" *ngIf="descriptionControl.touched && descriptionControl.invalid">Description is Mandatory</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Update</button>
+</form>

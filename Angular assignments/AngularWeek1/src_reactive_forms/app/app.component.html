@@ -1,0 +1,42 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="container col-lg-5">
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="EnterFirstName" formControlName="firstName" class="form-control" [ngClass]="{'is-invalid':submitted && f['firstName'].errors}">
+        <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['firstName'].errors?.['required']">FirstName is required</div>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="EnterLastName" formControlName="lastName" class="form-control" [ngClass]="{'is-invalid':submitted && f['lastName'].errors}">
+        <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['lastName'].errors?.['required']">LastName is required</div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" placeholder="EnterEmailAddress" formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && f['email'].errors}">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['email'].errors?.['required']">Email is required</div>
+        <div style="color: red;" *ngIf="f['email'].errors?.['email']">Email must be a valid email address</div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Password </label>
+        <input type="text" placeholder="EnterPassword" formControlName="password" class="form-control" [ngClass]="{'is-invalid':submitted && f['password'].errors}">
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['password'].errors?.['required']">Password is required</div>
+    </div>
+
+
+
+
+    <!-- <button type="submit" class="btn btn-primary">Register</button> -->
+    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+
+
+</form>

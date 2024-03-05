@@ -1,0 +1,54 @@
+<p>addplayer works!</p>
+
+<form #myform="ngForm" method="post" class="container col-md-4" (ngSubmit)="insertPlayer(myform.value)">
+
+    <div class="form-group">
+        <label>Player ID:</label>
+        <input type="number" class="form-control" #playerIdControl="ngModel" name="playerId" required ngModel>
+        <span style="color: red;" *ngIf="playerIdControl.touched && playerIdControl.invalid">Player ID is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Player Name:</label>
+        <input type="text" class="form-control" #playerNameControl="ngModel" name="playerName" required ngModel>
+        <span style="color: red;" *ngIf="playerNameControl.touched && playerNameControl.invalid">Player Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Jersey Number:</label>
+        <input type="text" class="form-control" #jerseyNumberControl="ngModel" name="jerseyNumber" required ngModel>
+        <span style="color: red;" *ngIf="jerseyNumberControl.touched && jerseyNumberControl.invalid">Jersey Number is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Role:</label>
+        <input type="text" class="form-control" #roleControl="ngModel" name="role" required ngModel>
+        <span style="color: red;" *ngIf="roleControl.touched && roleControl.invalid">Role is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Total Matches:</label>
+        <input type="number" class="form-control" #totalMatchesControl="ngModel" name="totalMatches" required ngModel>
+        <span style="color: red;" *ngIf="totalMatchesControl.touched && totalMatchesControl.invalid">Total Matches is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Team Name:</label>
+        <input type="text" class="form-control" #teamNameControl="ngModel" name="teamName" required ngModel>
+        <span style="color: red;" *ngIf="teamNameControl.touched && teamNameControl.invalid">Team Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Country/State Name:</label>
+        <input type="text" class="form-control" #countryOrStateNameControl="ngModel" name="countryOrStateName" required ngModel>
+        <span style="color: red;" *ngIf="countryOrStateNameControl.touched && countryOrStateNameControl.invalid">Country/State Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Description:</label>
+        <textarea class="form-control" #descriptionControl="ngModel" name="description" required ngModel></textarea>
+        <span style="color: red;" *ngIf="descriptionControl.touched && descriptionControl.invalid">Description is Mandatory</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+</form>

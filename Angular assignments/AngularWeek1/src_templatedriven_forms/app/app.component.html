@@ -1,0 +1,36 @@
+<div class="alert alert-success">
+
+    Login Form</div>
+
+<!-- 
+<button type="button" class="btn btn-primary">Login</button> -->
+
+<!-- Here below #loginForm is a type of dummy template name we have given for the whole form so that 
+whenever we want to call the form properties we can call it by using this alias name as loginForm -->
+<form #loginForm="ngForm" (ngSubmit)="getFormData(loginForm.value)" class="container  col-md-4">
+    <!-- above ngSubmit is predefined onSubmit method which binds the ngSubmit event to the getFormData() 
+      method in the component class when the form is submitted. -->
+    <div>
+        <label for="username">Enter UserName: </label>
+        <!-- Here below ngModel is used for two way data binding  -->
+        <input type="text" name="username" required class="form-control" ngModel #uid="ngModel" />
+        <!-- #uid="ngModel": Assigns a template reference variable uid to the NgModel directive, which can 
+          be used to access the validation state of the field. -->
+        <span style="color:red" *ngIf="uid.touched && uid.invalid">UserName is Required</span>
+        <!-- <span style="color:red" *ngIf="uid.touched && uid.invalid">UserName is Required</span>: This 
+      displays a red error message if 
+      the username field is touched (i.e., focused and then blurred) and invalid (i.e., empty). -->
+
+    </div>
+    <div>
+        <label for="password">Enter Password: </label>
+        <input type="text" name="password" required class="form-control" ngModel #pwd="ngModel" />
+        <span style="color:red" *ngIf="pwd.touched && pwd.invalid">Password is Required</span>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+
+    <!-- [disabled]="loginForm.invalid": Disables the button if the form is invalid
+   (i.e., if any field fails validation). -->
+
+</form>

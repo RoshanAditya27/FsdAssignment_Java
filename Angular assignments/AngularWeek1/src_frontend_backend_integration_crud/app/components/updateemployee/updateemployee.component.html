@@ -1,0 +1,29 @@
+<p>Update Employee</p>
+
+<form #updateForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="updateEmployee(employeeToUpdate)">
+    <div class="form-group">
+        <label>EID:</label>
+        <input type="number" class="form-control" name="eid" #eidControl="ngModel" required [(ngModel)]="employeeToUpdate.eid">
+        <span style="color: red;" *ngIf="eidControl.touched && eidControl.invalid">Employee ID is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>EName:</label>
+        <input type="text" class="form-control" name="ename" #enameControl="ngModel" required [(ngModel)]="employeeToUpdate.ename">
+        <span style="color: red;" *ngIf="enameControl.touched && enameControl.invalid">Emp Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Salary:</label>
+        <input type="number" class="form-control" name="salary" #salControl="ngModel" required [(ngModel)]="employeeToUpdate.salary">
+        <span style="color: red;" *ngIf="salControl.touched && salControl.invalid">Salary is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>DOJ:</label>
+        <input type="date" class="form-control" name="doj" #dojControl="ngModel" required [(ngModel)]="employeeToUpdate.doj">
+        <span style="color: red;" *ngIf="dojControl.touched && dojControl.invalid">DOJ is Mandatory</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Update</button>
+</form>

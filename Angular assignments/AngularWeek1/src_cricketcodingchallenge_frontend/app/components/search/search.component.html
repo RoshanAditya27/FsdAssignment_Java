@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table table-primary col-sm-5">
+        <tr>
+            <th>SNO.</th>
+            <th>Player ID</th>
+            <th>Player Name</th>
+            <th>Jersey Number</th>
+            <th>Role</th>
+            <th>Total Matches</th>
+            <th>Team Name</th>
+            <th>Country/State Name</th>
+            <th>Description</th>
+        </tr>
+        <tr *ngFor="let player of playerSearchList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{ player.playerId }}</td>
+            <td>{{ player.playerName }}</td>
+            <td>{{ player.jerseyNumber }}</td>
+            <td>{{ player.role }}</td>
+            <td>{{ player.totalMatches }}</td>
+            <td>{{ player.teamName }}</td>
+            <td>{{ player.countryOrStateName }}</td>
+            <td>{{ player.description }}</td>
+        </tr>
+    </table>
+</div>

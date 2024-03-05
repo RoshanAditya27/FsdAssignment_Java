@@ -1,0 +1,23 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="container col-lg-5">
+    <div class="form-group">
+        <label for="adminUsername">Admin Username</label>
+        <input type="text" id="adminUsername" formControlName="adminUsername" placeholder="Enter Admin Username" class="form-control" [ngClass]="{'is-invalid':submitted && f['adminUsername'].errors}">
+        <div *ngIf="submitted && f['adminUsername'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['adminUsername'].errors?.['required']">Admin Username is required</div>
+    </div>
+    <div class="form-group">
+        <label for="adminPassword">Admin Password</label>
+        <input type="password" id="adminPassword" formControlName="adminPassword" placeholder="Enter Admin Password" class="form-control" [ngClass]="{'is-invalid':submitted && f['adminPassword'].errors}">
+        <div *ngIf="submitted && f['adminPassword'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['adminPassword'].errors?.['required']">Admin Password is required</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Login</button>
+    <!-- Button to toggle visibility of Bus Operator Form -->
+    <!-- <button type="button" class="btn btn-primary" (click)="toggleBusOperatorForm()">Open Bus Operator Form</button> -->
+
+
+    <!-- Router Outlet to display component based on current route -->
+    <!-- <router-outlet></router-outlet> -->
+
+</form>

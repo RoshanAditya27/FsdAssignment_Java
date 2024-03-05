@@ -1,0 +1,16 @@
+<form [formGroup]="busOperatorForm" (ngSubmit)="onSubmit()" class="container col-lg-5">
+    <div class="form-group">
+        <label for="busOperatorUsername">Bus Operator Username</label>
+        <input type="text" id="busOperatorUsername" formControlName="busOperatorUsername" placeholder="Enter Bus Operator Username" class="form-control" [ngClass]="{'is-invalid': submitted && f['busOperatorUsername'].errors}">
+        <div *ngIf="submitted && f['busOperatorUsername'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['busOperatorUsername'].errors?.['required']">Bus Operator Username is required</div>
+    </div>
+    <div class="form-group">
+        <label for="busOperatorPassword">Bus Operator Password</label>
+        <input type="password" id="busOperatorPassword" formControlName="busOperatorPassword" placeholder="Enter Bus Operator Password" class="form-control" [ngClass]="{'is-invalid': submitted && f['busOperatorPassword'].errors}">
+        <div *ngIf="submitted && f['busOperatorPassword'].errors" class="invalid-feedback"></div>
+        <div style="color: red;" *ngIf="f['busOperatorPassword'].errors?.['required']">Bus Operator Password is required</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!busOperatorForm.valid">Login</button>
+</form>

@@ -1,0 +1,13 @@
+<form #formData="ngForm" (ngSubmit)="updateProduct(formData.value)">
+    <!-- Product ID (hidden input) -->
+    <input type="hidden" name="id" [ngModel]="product.id">
+
+    <!-- Product Name -->
+    Enter PNAME : <input type="text" name="name" [ngModel]="product.name"> <br>
+
+    <!-- Product Price -->
+    Enter PRICE : <input type="number" name="price" [ngModel]="product.price"> <br>
+
+    <!-- Submit Button -->
+    <button type="submit">Update Product</button>
+</form>
